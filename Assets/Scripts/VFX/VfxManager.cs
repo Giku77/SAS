@@ -28,10 +28,11 @@ public class VfxManager : MonoBehaviour, IPoolable
     {
         attackVfxPool = ObjectPool.GetOrCreate(defaultAttackVfxRef.gameObject);
         copydamagedVfx = Instantiate(damagedVfxRef.gameObject, vfxAnchors[(int)VfxType.Damage]);
+        skillVfxs = new SkillDef[skillVfxsRef.Length];
         for (int i = 0; i < skillVfxsRef.Length; i++)
         {
-            skillVfxs[i].skillEffect = Instantiate(skillVfxsRef[i].skillEffect, vfxAnchors[(int)VfxType.Skill]);
-            skillVfxs[i].skillEffect.gameObject.SetActive(false);
+            //skillVfxs[i].skillEffect = Instantiate(skillVfxsRef[i].skillEffect, vfxAnchors[(int)VfxType.Skill]);
+            //skillVfxs[i].skillEffect.gameObject.SetActive(false);
         }
     }
 
