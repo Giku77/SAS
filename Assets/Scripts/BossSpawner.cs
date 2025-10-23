@@ -38,14 +38,14 @@ public class BossSpawner : MonoBehaviour
     System.Collections.IEnumerator PlayBossIntro()
     {
         bossIntroCam.Priority = 100;
-        player.GetComponent<PlayerMove>().enabled = false;
+        player.GetComponent<Player>().enabled = false;
         yield return new WaitForSeconds(1.5f);
         boss.SetActive(true);
         var impulse = boss.GetComponent<CinemachineImpulseSource>();
         if (impulse) impulse.GenerateImpulse();
 
         yield return new WaitForSeconds(introDuration);
-        player.GetComponent<PlayerMove>().enabled = true;
+        player.GetComponent<Player>().enabled = true;
 
         playerCam.Priority = 100;
         bossIntroCam.Priority = 5;
