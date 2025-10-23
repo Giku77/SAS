@@ -1,8 +1,6 @@
 using UnityEngine;
 public class ActiveSkill : SkillBase
 {
-    protected float playerMp = 100f; // TODO: 플레이어 데이터와 바인딩
-
     public override bool CanCast()
     {
         return HasEnoughResource() && !IsOnCooldown();
@@ -11,14 +9,18 @@ public class ActiveSkill : SkillBase
     public override bool HasEnoughResource()
     {
         if (skill == null) return false;
-        return playerMp >= skill.mp;
+        return playerEntity.mpValue >= skill.mp;
     }
 
     public override void ConsumeResource()
     {
-        if (skill == null) return;
-        playerMp -= skill.mp;
-        // TODO: UI 갱신 등
+        if (skill == null || playerEntity == null) return;
+
+        bool success = playerEntity.TryConsumeMp(skill.mp);
+        if (!success)
+        {
+            Debug.LogWarning($"{skillName} - Not enough MP!");
+        }
     }
 
     public override void Execute()

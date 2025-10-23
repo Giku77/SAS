@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Debuff
   m_EditorClassIdentifier: 
   skillname: 1
-  loop: 0
+  loop: 1
   coolTime: 7
   mp: 10
   damage: 0

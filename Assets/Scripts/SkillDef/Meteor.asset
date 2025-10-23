@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Meteor
   m_EditorClassIdentifier: 
   skillname: 2
-  loop: 0
+  loop: 1
   coolTime: 3
   mp: 10
+  damage: 0
   skillKey: 54
   skillEffect: {fileID: 198947835816751376, guid: b0351d18273b5f54db50343bea172f4d, type: 3}

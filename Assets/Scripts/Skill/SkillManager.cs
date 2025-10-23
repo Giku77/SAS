@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public  class SkillManager : MonoBehaviour
+public class SkillManager : MonoBehaviour
 {
     public static SkillManager I { get; private set; }
 
@@ -11,6 +11,9 @@ public  class SkillManager : MonoBehaviour
     public float globalCooldownMultiplier = 1f;
 
     public bool isPaused = false;
+
+    public ResourceBar mpBar;
+    public Entity playerEntity;
 
     void Awake()
     {
@@ -25,7 +28,21 @@ public  class SkillManager : MonoBehaviour
 
     public void Start()
     {
+        if (playerEntity == null)
+        {
+            Debug.LogWarning("SkillManager: playerEntity is null");
+        }
+        if (mpBar != null && playerEntity != null)
+        {
+            mpBar.InitSlider(playerEntity.maxMp);
+            mpBar.UpdateSlider(playerEntity.mpValue);
 
+            playerEntity.OnMpChanged += OnPlayerMpChanged;
+        }
+    }
+    private void OnPlayerMpChanged(float curMp)
+    {
+        if (mpBar != null) mpBar.UpdateSlider(curMp);
     }
     public void RegisterSkill(SkillBase skill)
     {
@@ -55,5 +72,10 @@ public  class SkillManager : MonoBehaviour
     {
         for (int i = 0; i < skills.Count; i++)
             skills[i].ResetSkill();
+    }
+
+    void OnDestroy()
+    {
+        if (playerEntity != null) playerEntity.OnMpChanged -= OnPlayerMpChanged;
     }
 }

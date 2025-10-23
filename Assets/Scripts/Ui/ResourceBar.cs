@@ -3,17 +3,16 @@ using UnityEngine.UI;
 
 public class ResourceBar : MonoBehaviour
 {
-    private Slider slider;
-    private int maxValue;
-
-    void InitSlider(Slider go, int max)
+    [SerializeField] private Slider slider;
+    private float maxValue;
+    public void InitSlider(float max)
     {
         maxValue = max;
-        go.maxValue = max;
-        go.value = max;
+        slider.maxValue = max;
+        slider.value = max;
     }
-    void UpdateSlider(int cur)
+    public void UpdateSlider(float cur)
     {
-        slider.value = cur;
+        slider.value = Mathf.Clamp(cur, 0f, slider.maxValue);
     }
 }

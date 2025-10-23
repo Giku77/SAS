@@ -4,6 +4,8 @@ using System;
 public abstract class SkillBase : MonoBehaviour
 {
     [SerializeField] protected SkillDef skill;
+    [SerializeField] protected Entity playerEntity;
+
     public SkillName skillName;
 
     protected float remainingCoolDown = 0f;
@@ -12,6 +14,8 @@ public abstract class SkillBase : MonoBehaviour
     public Action<float> OnCooldownChanged;
     public Action OnCooldownFinished;
 
+    [Header("UI (optional)")]
+    public ResourceBar resourceBar;
     protected virtual void Awake()
     {
 
@@ -23,6 +27,19 @@ public abstract class SkillBase : MonoBehaviour
         {
             skill = VfxManager.skillVfxs[(int)skillName];
         }
+
+        if (resourceBar != null && skill != null)
+        {
+            resourceBar.InitSlider(skill.coolTime);
+            resourceBar.UpdateSlider(0f);
+            OnCooldownChanged += resourceBar.UpdateSlider;
+        }
+
+        if (resourceBar != null)
+        {
+            resourceBar.InitSlider(skill.coolTime);
+        }
+
         remainingCoolDown = 0f;
 
         SkillManager.I?.RegisterSkill(this);
@@ -31,6 +48,8 @@ public abstract class SkillBase : MonoBehaviour
     protected virtual void OnDestroy()
     {
         SkillManager.I?.UnregisterSkill(this);
+        if (resourceBar != null)
+            OnCooldownChanged -= resourceBar.UpdateSlider;
     }
 
     public abstract bool CanCast();
@@ -43,6 +62,7 @@ public abstract class SkillBase : MonoBehaviour
     {
         remainingCoolDown = 0f;
         OnCooldownChanged?.Invoke(remainingCoolDown);
+        if (resourceBar != null) resourceBar.UpdateSlider(0f);
     }
     public abstract bool HasEnoughResource();
     public abstract void ConsumeResource();
@@ -64,15 +84,8 @@ public abstract class SkillBase : MonoBehaviour
         if (remainingCoolDown <= 0f) return;
 
         remainingCoolDown -= deltaTime;
-        if (remainingCoolDown <= 0f)
-        {
-            remainingCoolDown = 0f;
-            OnCooldownChanged?.Invoke(remainingCoolDown);
-            OnCooldownFinished?.Invoke();
-        }
-        else
-        {
-            OnCooldownChanged?.Invoke(remainingCoolDown);
-        }
+        remainingCoolDown = Mathf.Max(0f, remainingCoolDown);
+        OnCooldownChanged?.Invoke(remainingCoolDown);
+        if (remainingCoolDown <= 0f) OnCooldownFinished?.Invoke();
     }
 }

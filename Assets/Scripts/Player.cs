@@ -33,6 +33,7 @@ public class Player : Entity
 
     private void Awake()
     {
+        base.Awake();
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   skillname: 0
-  loop: 0
+  loop: 1
   coolTime: 5
   mp: 10
+  damage: 0
   skillKey: 51
   skillEffect: {fileID: 198665422404971792, guid: 58978c7cb90f3e14ea88e9bc087731cf, type: 3}
