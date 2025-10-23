@@ -249,6 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 201101488}
   - component: {fileID: 201101489}
+  - component: {fileID: 201101490}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -287,6 +288,20 @@ MonoBehaviour:
   playerEntity: {fileID: 1696710914}
   skillName: 0
   resourceBar: {fileID: 2122340520}
+--- !u!114 &201101490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201101487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81679b714f4aca469a85d3f243a23ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 0}
+  healAmount: 50
 --- !u!224 &222327882 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6112562564565548440, guid: 0fa57d14f77e3244fa2d76d2a16c92d3, type: 3}
@@ -559,6 +574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 302339790}
   - component: {fileID: 302339791}
+  - component: {fileID: 302339792}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -597,6 +613,24 @@ MonoBehaviour:
   playerEntity: {fileID: 1696710914}
   skillName: 4
   resourceBar: {fileID: 1428382302}
+--- !u!114 &302339792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302339789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4645d637552277342b11cd71e09b004d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 0}
+  explosionDelay: 3
+  damage: 100
+  radius: 5
+  enemyLayer:
+    m_Bits: 128
 --- !u!1001 &336337343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -769,6 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8832785c0d7731740b70344952da576f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicBGM: {fileID: 8300000, guid: 24efe36e9c12d3b458c5186dc82e67f9, type: 3}
   globalCooldownMultiplier: 1
   isPaused: 0
   mpBar: {fileID: 1859321756}
@@ -1366,6 +1401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 858023142}
   - component: {fileID: 858023143}
+  - component: {fileID: 858023144}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -1404,6 +1440,24 @@ MonoBehaviour:
   playerEntity: {fileID: 1696710914}
   skillName: 2
   resourceBar: {fileID: 853703870}
+--- !u!114 &858023144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858023141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64999c872a523ab4897387ef6a13b5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 0}
+  damage: 30
+  radius: 3
+  enemyLayer:
+    m_Bits: 128
+  damageDelay: 2
 --- !u!1 &919429933
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,6 +2602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1193669288}
   - component: {fileID: 1193669289}
+  - component: {fileID: 1193669290}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -2586,6 +2641,21 @@ MonoBehaviour:
   playerEntity: {fileID: 1696710914}
   skillName: 5
   resourceBar: {fileID: 1772065188}
+--- !u!114 &1193669290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193669287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098bfda45f48cd2488a9a9edf204ecf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 0}
+  damageMultiplier: 1.5
+  duration: 6
 --- !u!1001 &1231580361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2922,6 +2992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1543244013}
   - component: {fileID: 1543244014}
+  - component: {fileID: 1543244015}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -2960,6 +3031,25 @@ MonoBehaviour:
   playerEntity: {fileID: 1696710914}
   skillName: 1
   resourceBar: {fileID: 1462375055}
+--- !u!114 &1543244015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543244012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148b7d7239c64bf41a95bcec1713b1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 0}
+  dotDamage: 1
+  duration: 5
+  tickInterval: 1
+  radius: 5
+  enemyLayer:
+    m_Bits: 128
 --- !u!4 &1579294953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4951823885998528, guid: a8d3fcab2b67056498a80532b2542465, type: 3}
@@ -3108,6 +3198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1837700311}
   - component: {fileID: 1837700312}
+  - component: {fileID: 1837700313}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -3146,6 +3237,24 @@ MonoBehaviour:
   playerEntity: {fileID: 1696710914}
   skillName: 6
   resourceBar: {fileID: 344221637}
+--- !u!114 &1837700313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837700310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ad04d8dd9c938458769d69bc69d10c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 0}
+  duration: 3.5
+  pullForce: 10
+  radius: 10
+  enemyLayer:
+    m_Bits: 128
 --- !u!1001 &1859321754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3163,15 +3272,35 @@ PrefabInstance:
       value: -373
       objectReference: {fileID: 0}
     - target: {fileID: 1308917535, guid: 2b9cafc07bce5924ca7bda2e9fac3cdd, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308917535, guid: 2b9cafc07bce5924ca7bda2e9fac3cdd, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308917535, guid: 2b9cafc07bce5924ca7bda2e9fac3cdd, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CrusaderUI.Scripts.HPFlowController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693668241, guid: 2b9cafc07bce5924ca7bda2e9fac3cdd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1693668241, guid: 2b9cafc07bce5924ca7bda2e9fac3cdd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1874162311, guid: 2b9cafc07bce5924ca7bda2e9fac3cdd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874162311, guid: 2b9cafc07bce5924ca7bda2e9fac3cdd, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874162311, guid: 2b9cafc07bce5924ca7bda2e9fac3cdd, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8063197652352912932, guid: 2b9cafc07bce5924ca7bda2e9fac3cdd, type: 3}
@@ -3304,6 +3433,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 180637261}
+--- !u!1 &1935411468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935411470}
+  - component: {fileID: 1935411469}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1935411469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935411468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e5904a20f6c35429dcab9ff81fee29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 67bccb818a1d17943ad3057a4f2dbe55, type: 2}
+  bgmGroup: {fileID: 0}
+  sfxGroup: {fileID: 0}
+  bgmA: {fileID: 0}
+  bgmB: {fileID: 0}
+  initialSfxSources: 16
+  sfxDefs: []
+--- !u!4 &1935411470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935411468}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1957143514
 GameObject:
   m_ObjectHideFlags: 0
@@ -3513,6 +3693,7 @@ MonoBehaviour:
   boss: {fileID: 22152446766833406}
   playerCam: {fileID: 972754291}
   bossIntroCam: {fileID: 642714908}
+  bossBGM: {fileID: 8300000, guid: d0c77ac5ebd69314394325d909029f07, type: 3}
   triggerDist: 20
   introDuration: 3
 --- !u!1001 &2097070135
@@ -4423,6 +4604,7 @@ SceneRoots:
   - {fileID: 476552059}
   - {fileID: 642714909}
   - {fileID: 919429934}
+  - {fileID: 1935411470}
   - {fileID: 1015120071}
   - {fileID: 1957143517}
   - {fileID: 2011772036}
