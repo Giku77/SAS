@@ -193,11 +193,12 @@ public class Enemy : Entity
 
     public void Hit() 
     {
+        float dist = Vector3.Distance(transform.position, target.position);
         if (attackType == EnemyAttackType.MELEE)
         {
             //animator.SetFloat(hashAttackSpeed, enemyData.attackSpeed);
         }
-        else if (attackType == EnemyAttackType.RANGED)
+        else if (attackType == EnemyAttackType.RANGED && dist > 2)
         {
             FireProjectile();
         }
