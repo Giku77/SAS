@@ -31,8 +31,10 @@ public class VfxManager : MonoBehaviour, IPoolable
         skillVfxs = new SkillDef[skillVfxsRef.Length];
         for (int i = 0; i < skillVfxsRef.Length; i++)
         {
-            //skillVfxs[i].skillEffect = Instantiate(skillVfxsRef[i].skillEffect, vfxAnchors[(int)VfxType.Skill]);
-            //skillVfxs[i].skillEffect.gameObject.SetActive(false);
+            Debug.Log("Instantiate skill VFX: " + skillVfxsRef[i].skillname);
+            skillVfxs[i] = ScriptableObject.CreateInstance<SkillDef>();
+            skillVfxs[i].skillEffect = Instantiate(skillVfxsRef[i].skillEffect, vfxAnchors[(int)VfxType.Skill]);
+            skillVfxs[i].skillEffect.gameObject.SetActive(false);
         }
     }
 
