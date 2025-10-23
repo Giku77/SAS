@@ -1,18 +1,19 @@
+using System.Linq;
 using UnityEngine;
 
 public class VfxManager : MonoBehaviour, IPoolable
 {
     [Header("FX: Ref")]
-    [SerializeField] private ParticleSystem attackVfx;
-    [SerializeField] private ParticleSystem damageVfx;
-    [SerializeField] private ParticleSystem skillVfx;
+    [SerializeField] private ParticleSystem defaultAttackVfxRef;
+    [SerializeField] private ParticleSystem damagedVfxRef;
+    [SerializeField] private SkillDef[] skillVfxsRef;
 
     [Tooltip("0: Attack, 1: Damage, 2: Skill")]
     [SerializeField] private Transform[] vfxAnchors = new Transform[(int)VfxType.Count];
 
-    private GameObject[] vfxs = new GameObject[3];
     private ObjectPool attackVfxPool;
-    
+    private GameObject copydamagedVfx;
+    private SkillDef[] skillVfxs;
     public void OnPoppedFromPool()
     {
        
@@ -23,12 +24,15 @@ public class VfxManager : MonoBehaviour, IPoolable
        
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        attackVfxPool = ObjectPool.GetOrCreate(attackVfx.gameObject);
-        vfxs[(int)VfxType.Damage] = Instantiate(damageVfx.gameObject, vfxAnchors[(int)VfxType.Damage]);
-        vfxs[(int)VfxType.Skill] = Instantiate(skillVfx.gameObject, vfxAnchors[(int)VfxType.Skill]);
+        attackVfxPool = ObjectPool.GetOrCreate(defaultAttackVfxRef.gameObject);
+        copydamagedVfx = Instantiate(damagedVfxRef.gameObject, vfxAnchors[(int)VfxType.Damage]);
+        for (int i = 0; i < skillVfxsRef.Length; i++)
+        {
+            skillVfxs[i].skillEffect = Instantiate(skillVfxsRef[i].skillEffect, vfxAnchors[(int)VfxType.Skill]);
+            skillVfxs[i].skillEffect.gameObject.SetActive(false);
+        }
     }
 
     void OnPlayAttackVfx()

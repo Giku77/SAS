@@ -5,3 +5,15 @@ public enum VfxType
     Skill = 2,
     Count = 3
 }
+
+public enum SkillName
+{
+    Heal,
+    Debuff,
+    Meteor,
+    MeteorHit,
+    Explosion,
+    Knife,
+    MegaBlackHole,
+    Count
+}
