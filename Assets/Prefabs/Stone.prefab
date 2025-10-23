@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3772288233722197390}
   - component: {fileID: 9172209333500404726}
   - component: {fileID: 2491146253156965448}
-  - component: {fileID: 8629916916927754846}
   - component: {fileID: 6076740841802701683}
   - component: {fileID: 5971526521331208808}
-  m_Layer: 0
+  - component: {fileID: 820876571620268999}
+  m_Layer: 6
   m_Name: Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,28 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8629916916927754846
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4424917647098417855}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4064026652224440169, guid: 0de9bc9bca846804393b283e5bb0841a, type: 3}
 --- !u!54 &6076740841802701683
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -154,3 +132,24 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!135 &820876571620268999
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424917647098417855}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.2769159
+  m_Center: {x: 0, y: -0.000000029802322, z: 0}
