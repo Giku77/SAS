@@ -13,7 +13,7 @@ public class VfxManager : MonoBehaviour, IPoolable
 
     private ObjectPool attackVfxPool;
     private GameObject copydamagedVfx;
-    private SkillDef[] skillVfxs;
+    public static SkillDef[] skillVfxs;
     public void OnPoppedFromPool()
     {
        
@@ -32,7 +32,11 @@ public class VfxManager : MonoBehaviour, IPoolable
         for (int i = 0; i < skillVfxsRef.Length; i++)
         {
             Debug.Log("Instantiate skill VFX: " + skillVfxsRef[i].skillname);
+            //skillVfxs[i] = ScriptableObject.CreateInstance<SkillDef>();
             skillVfxs[i] = ScriptableObject.CreateInstance<SkillDef>();
+            skillVfxs[i].skillname = skillVfxsRef[i].skillname;
+            skillVfxs[i].mp = skillVfxsRef[i].mp;
+            skillVfxs[i].coolTime = skillVfxsRef[i].coolTime;
             skillVfxs[i].skillEffect = Instantiate(skillVfxsRef[i].skillEffect, vfxAnchors[(int)VfxType.Skill]);
             skillVfxs[i].skillEffect.gameObject.SetActive(false);
         }
