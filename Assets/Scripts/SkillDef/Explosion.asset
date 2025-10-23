@@ -15,4 +15,5 @@ MonoBehaviour:
   skillname: 4
   loop: 0
   coolTime: 1.5
+  mp: 10
   skillEffect: {fileID: 198076815976795324, guid: 7aa00826aede71643a1a1e12d8ce85bf, type: 3}
