@@ -15,9 +15,9 @@ MonoBehaviour:
   enemyId: 1003
   attackType: 1
   enemyName: "\uC2A4\uCF08\uB808\uD1A4 \uD0B9"
-  health: 500
+  health: 1000
   speed: 7
-  damage: 10
+  damage: 30
   attackSpeed: 1
   enemyPrefab: {fileID: 116933430611276952, guid: 45aebae244616f64fbb80b815cb78214, type: 3}
   attackPrefab: {fileID: 0}

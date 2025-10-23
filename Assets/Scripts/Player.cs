@@ -13,7 +13,7 @@ public class Player : Entity
     public float rotateSpeed = 10f;
     public float minMoveDistance = 0.5f;
 
-    private float attackDistance = 3f;
+    private float attackDistance = 4f;
     private int attackDamage;
     private int addDamage;
 
@@ -230,8 +230,8 @@ public class Player : Entity
 
             agent.stoppingDistance = stoppingDistance;
 
-            smallSword.SetActive(false);
-            bigSword.SetActive(true);
+            if (smallSword) smallSword.SetActive(false);
+            if (bigSword) bigSword.SetActive(true);
 
             other.gameObject.SetActive(false);
         }

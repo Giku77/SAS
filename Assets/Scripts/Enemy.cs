@@ -119,7 +119,7 @@ public class Enemy : Entity
 
         var proj = rangedOBJ.GetComponent<Projectile>();
 
-        Vector3 target = GameObject.FindGameObjectWithTag("Player").transform.position + Vector3.up * 1.0f;
+        Vector3 target = GameObject.FindGameObjectWithTag("Player").transform.position;
         float flightTime = 0.8f; 
         proj.LaunchTo(spawnPos, target, flightTime, owner: transform);
     }
@@ -182,6 +182,7 @@ public class Enemy : Entity
             lastAttackTime = Time.time;
             if (enemyId == EnemyIds.BOSS)
             {
+                Hit();
                 int attackAnim = Random.Range(0, 2);
                 if (attackAnim == 0)
                     animator.SetBool(hashAttack, true);

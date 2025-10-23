@@ -18,7 +18,6 @@ public class SkillManager : MonoBehaviour
 
     void Awake()
     {
-        AudioManager.I.PlayBGM(basicBGM, 2f);
         if (I == null) I = this;
         else
         {
@@ -30,6 +29,7 @@ public class SkillManager : MonoBehaviour
 
     public void Start()
     {
+        AudioManager.I.PlayBGM(basicBGM, 2f);
         if (playerEntity == null)
         {
             Debug.LogWarning("SkillManager: playerEntity is null");

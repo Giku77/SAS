@@ -43,6 +43,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"Projectile hit {other.name}");
         if (owner && other.transform.root == owner.root) return;
         Despawn();
         if (((1 << other.gameObject.layer) & hitMask) != 0)
