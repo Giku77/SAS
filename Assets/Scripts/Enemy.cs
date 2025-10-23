@@ -230,7 +230,7 @@ public class Enemy : Entity
     private void UpdateIdle()
     {
         target = FindTargetT(traceDist);
-        Debug.Log($"Enemy UpdateIdle find target: {target}");
+       // Debug.Log($"Enemy UpdateIdle find target: {target}");
         if (target != null && Vector3.Distance(transform.position, target.position) <= traceDist)
         {
             state = State.Trace;

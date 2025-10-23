@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -23,27 +24,71 @@ public class VfxManager : MonoBehaviour, IPoolable
     {
        
     }
-
+    void OnPlayAttackVfx()
+    {
+        attackVfxPool.Pop(vfxAnchors[(int)VfxType.Attack].position, Quaternion.identity);
+    }
     void Awake()
     {
         attackVfxPool = ObjectPool.GetOrCreate(defaultAttackVfxRef.gameObject);
         copydamagedVfx = Instantiate(damagedVfxRef.gameObject, vfxAnchors[(int)VfxType.Damage]);
-        skillVfxs = new SkillDef[skillVfxsRef.Length];
-        for (int i = 0; i < skillVfxsRef.Length; i++)
-        {
-            Debug.Log("Instantiate skill VFX: " + skillVfxsRef[i].skillname);
-            //skillVfxs[i] = ScriptableObject.CreateInstance<SkillDef>();
-            skillVfxs[i] = ScriptableObject.CreateInstance<SkillDef>();
-            skillVfxs[i].skillname = skillVfxsRef[i].skillname;
-            skillVfxs[i].mp = skillVfxsRef[i].mp;
-            skillVfxs[i].coolTime = skillVfxsRef[i].coolTime;
-            skillVfxs[i].skillEffect = Instantiate(skillVfxsRef[i].skillEffect, vfxAnchors[(int)VfxType.Skill]);
-            skillVfxs[i].skillEffect.gameObject.SetActive(false);
-        }
+        CreateSkillVfxsFromRefs();
     }
 
-    void OnPlayAttackVfx()
+    void CreateSkillVfxsFromRefs()
     {
-        attackVfxPool.Pop(vfxAnchors[(int)VfxType.Attack].position, Quaternion.identity);
+        int enumCount = (int)SkillName.Count;
+        if (skillVfxs == null || skillVfxs.Length != enumCount)
+            skillVfxs = new SkillDef[enumCount];
+
+        for (int i = 0; i < skillVfxsRef.Length; i++)
+        {
+            var src = skillVfxsRef[i];
+            if (src == null)
+            {
+                Debug.LogWarning($"skillVfxsRef[{i}] is null - skip.");
+                continue;
+            }
+
+            SkillName name;
+            name = src.skillname;
+
+            int idx = (int)name;
+            if (idx < 0 || idx >= enumCount)
+            {
+                Debug.LogWarning($"SkillName index out of range: {name} ({idx}) - skip.");
+                continue;
+            }
+
+            if (skillVfxs[idx] != null)
+            {
+                Debug.LogWarning($"skillVfxs[{name}] already has value. Overwriting.");
+                continue;
+            }
+
+            var clone = ScriptableObject.CreateInstance<SkillDef>();
+
+            clone.skillname = src.skillname;
+            clone.mp = src.mp;
+            clone.coolTime = src.coolTime;
+            clone.loop = src.loop;
+            clone.skillKey = src.skillKey;
+            clone.damage = src.damage;
+
+            if (src.skillEffect != null)
+            {
+                Transform parent = vfxAnchors[(int)VfxType.Skill];
+                var vfxInstance = Instantiate(src.skillEffect, parent);
+                vfxInstance.gameObject.SetActive(false);
+                clone.skillEffect = vfxInstance;
+            }
+            else
+            {
+                clone.skillEffect = null;
+            }
+
+            skillVfxs[idx] = clone;
+            Debug.Log($"Assigned skillVfxs[{name}] (index {idx}) from ref[{i}]");
+        }
     }
 }
