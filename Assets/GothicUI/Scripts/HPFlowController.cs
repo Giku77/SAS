@@ -14,7 +14,7 @@ namespace CrusaderUI.Scripts
 
 		public void SetValue(float value)
 		{
-			_material.SetFloat("_FillLevel", value);
+			_material.SetFloat("_FillLevel", value/100);
 		}
 	}
 }

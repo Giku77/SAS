@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -48,7 +48,7 @@ public class Entity : MonoBehaviour
     public virtual void OnDamage(int damage)
     {
         health -= damage;
-        Debug.Log($"Entity OnDamage {damage}, health {health}");
+        //Debug.Log($"Entity OnDamage {damage}, health {health}");
         if (isDead)
         {
             Die();

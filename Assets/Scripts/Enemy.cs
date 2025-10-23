@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,7 +13,6 @@ public class Enemy : Entity
     public EnemyData enemyData;
     private EnemyIds enemyId;
     private EnemyAttackType attackType;
-
 
     public enum State
     {
@@ -195,7 +194,15 @@ public class Enemy : Entity
     {
         if (attackType == EnemyAttackType.MELEE)
         {
-            //animator.SetFloat(hashAttackSpeed, enemyData.attackSpeed);
+            if (target != null)
+            {
+                Player player = target.GetComponent<Player>();
+                if (player != null)
+                {
+                    player.OnDamage(damage);
+                }
+            }
+
         }
         else if (attackType == EnemyAttackType.RANGED)
         {
