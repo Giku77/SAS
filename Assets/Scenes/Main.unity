@@ -197,7 +197,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.27
+  m_Radius: 0.45
   m_Height: 1.74
   m_Direction: 1
   m_Center: {x: 0, y: 0.88, z: 0}
@@ -331,6 +331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: R_BatGoblin (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4996122745675529303, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5194253896371347990, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
       propertyPath: traceDist
       value: 15
@@ -422,6 +426,10 @@ PrefabInstance:
     - target: {fileID: 4996122745675529303, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
       propertyPath: m_Name
       value: R_BatGoblin (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996122745675529303, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5194253896371347990, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
       propertyPath: traceDist
@@ -515,6 +523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: R_BatGoblin (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4996122745675529303, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5194253896371347990, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
       propertyPath: traceDist
       value: 15
@@ -535,6 +547,10 @@ PrefabInstance:
     - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
       propertyPath: m_Name
       value: BatGoblin (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
       propertyPath: m_IsActive
@@ -728,6 +744,7 @@ GameObject:
   - component: {fileID: 642714908}
   - component: {fileID: 642714907}
   - component: {fileID: 642714906}
+  - component: {fileID: 642714910}
   m_Layer: 0
   m_Name: BossIntroCamera
   m_TagString: Untagged
@@ -841,6 +858,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 40.763, y: -66.94, z: 0}
+--- !u!114 &642714910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642714905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ApplyAfter: 2
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 0
+  UseCameraSpace: 1
+  SignalCombinationMode: 0
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 3
+    FrequencyGain: 4
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1001 &712328274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -880,6 +921,10 @@ PrefabInstance:
     - target: {fileID: 1962547137, guid: a40cca382720ec04ab892ce9144d8d14, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 769840547382532243, guid: a40cca382720ec04ab892ce9144d8d14, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 769840548497658398, guid: a40cca382720ec04ab892ce9144d8d14, type: 3}
       propertyPath: m_Pivot.x
@@ -980,6 +1025,10 @@ PrefabInstance:
     - target: {fileID: 769840548497658399, guid: a40cca382720ec04ab892ce9144d8d14, type: 3}
       propertyPath: m_Name
       value: DEMO LeftHp Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 769840548497658399, guid: a40cca382720ec04ab892ce9144d8d14, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1100,6 +1149,10 @@ PrefabInstance:
     - target: {fileID: 4996122745675529303, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
       propertyPath: m_Name
       value: R_BatGoblin (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996122745675529303, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5194253896371347990, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
       propertyPath: traceDist
@@ -1328,6 +1381,10 @@ PrefabInstance:
     - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
       propertyPath: m_Name
       value: BatGoblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
       propertyPath: m_IsActive
@@ -1810,7 +1867,6 @@ GameObject:
   - component: {fileID: 1153568531}
   - component: {fileID: 1153568536}
   - component: {fileID: 1153568537}
-  - component: {fileID: 1153568538}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1984,30 +2040,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!114 &1153568538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1153568530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ApplyAfter: 2
-  ChannelMask: 1
-  Gain: 3
-  Use2DDistance: 0
-  UseCameraSpace: 1
-  SignalCombinationMode: 0
-  ReactionSettings:
-    m_SecondaryNoise: {fileID: 0}
-    AmplitudeGain: 1
-    FrequencyGain: 4
-    Duration: 1
-    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1165490400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,6 +2115,10 @@ PrefabInstance:
     - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
       propertyPath: m_Name
       value: BatGoblin (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
       propertyPath: m_IsActive
@@ -2254,6 +2290,10 @@ PrefabInstance:
     - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
       propertyPath: m_Name
       value: BatGoblin (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
       propertyPath: m_IsActive
@@ -2445,6 +2485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DEMO RightHp Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8063197652352912932, guid: 2b9cafc07bce5924ca7bda2e9fac3cdd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8063197652352912933, guid: 2b9cafc07bce5924ca7bda2e9fac3cdd, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -2632,6 +2676,10 @@ PrefabInstance:
       value: BatGoblin (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2766,6 +2814,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1300192550932542, guid: dd51aa0141228c3478f60d3fe5ba00eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1644408783840310, guid: dd51aa0141228c3478f60d3fe5ba00eb, type: 3}
       propertyPath: m_Name
       value: Hero
@@ -2773,6 +2825,10 @@ PrefabInstance:
     - target: {fileID: 1644408783840310, guid: dd51aa0141228c3478f60d3fe5ba00eb, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651103941662380, guid: dd51aa0141228c3478f60d3fe5ba00eb, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4621171860792138, guid: dd51aa0141228c3478f60d3fe5ba00eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2957,7 +3013,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ImpulseDuration: 0.2
+    ImpulseDuration: 0.3
     ImpulseType: 0
     DissipationRate: 0.25
     RawSignal: {fileID: 0}
@@ -3116,6 +3172,10 @@ PrefabInstance:
     - target: {fileID: 4996122745675529303, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
       propertyPath: m_Name
       value: R_BatGoblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996122745675529303, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5194253896371347990, guid: 5e39c87815651ca4986caa7c5e82cd03, type: 3}
       propertyPath: traceDist

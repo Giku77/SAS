@@ -10,6 +10,12 @@ public class Projectile : MonoBehaviour
 
     void Awake() => rb = GetComponent<Rigidbody>();
 
+    private void OnEnable()
+    {
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
     public void LaunchTo(Vector3 start, Vector3 target, float flightTime, Transform owner = null)
     {
         this.owner = owner;
@@ -36,14 +42,16 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (owner && other.transform.root == owner.root) return;  
-
+        if (owner && other.transform.root == owner.root) return;
+        Despawn();
         if (((1 << other.gameObject.layer) & hitMask) != 0)
         {
-            Despawn();
+            Debug.Log($"Projectile hit {other.name}");
+           
         }
     }
 
-    void Despawn() => Destroy(gameObject);
+    void Despawn() => gameObject.SetActive(false);
+    //void Despawn() => Destroy(gameObject);
 }
  

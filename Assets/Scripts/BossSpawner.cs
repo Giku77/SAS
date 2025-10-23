@@ -1,5 +1,6 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BossSpawner : MonoBehaviour
 {
@@ -35,17 +36,20 @@ public class BossSpawner : MonoBehaviour
         }
     }
 
+    public void Stomp() {}
+
     System.Collections.IEnumerator PlayBossIntro()
     {
         bossIntroCam.Priority = 100;
-        player.GetComponent<Player>().enabled = false;
+        player.GetComponent<NavMeshAgent>().isStopped = true;
         yield return new WaitForSeconds(1.5f);
         boss.SetActive(true);
+        yield return new WaitForSeconds(2f);
         var impulse = boss.GetComponent<CinemachineImpulseSource>();
         if (impulse) impulse.GenerateImpulse();
 
         yield return new WaitForSeconds(introDuration);
-        player.GetComponent<Player>().enabled = true;
+        player.GetComponent<NavMeshAgent>().isStopped = false;  
 
         playerCam.Priority = 100;
         bossIntroCam.Priority = 5;

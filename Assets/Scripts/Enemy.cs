@@ -106,8 +106,14 @@ public class Enemy : Entity
         spawnPos += Vector3.up * 1.5f;
 
         var rot = Quaternion.LookRotation(dir, Vector3.up);
-
-        rangedOBJ = Instantiate(weapon, spawnPos, rot);
+        //rangedOBJ = Instantiate(weapon, spawnPos, rot);
+        if (rangedOBJ == null)
+            rangedOBJ = Instantiate(weapon, spawnPos, rot);
+        else
+        {
+            rangedOBJ.transform.SetPositionAndRotation(spawnPos, rot);
+            rangedOBJ.SetActive(true);
+        }
 
         var proj = rangedOBJ.GetComponent<Projectile>();
 
@@ -230,7 +236,6 @@ public class Enemy : Entity
     private void UpdateIdle()
     {
         target = FindTargetT(traceDist);
-        Debug.Log($"Enemy UpdateIdle find target: {target}");
         if (target != null && Vector3.Distance(transform.position, target.position) <= traceDist)
         {
             state = State.Trace;
@@ -383,7 +388,7 @@ public class Enemy : Entity
         inKnockback = false;
     }
 
-
+    public void Stomp() {}
     protected override void Die()
     {
         //audioSource.PlayOneShot(zombieDie, AudioManager.instance.sfxVolume);
