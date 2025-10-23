@@ -9,6 +9,8 @@ public class SkillDef : ScriptableObject
     public bool loop;
     public float coolTime;
     public float mp;
+    public float damage;
+    public KeyCode skillKey;
 
     [Header("Ref")]
     public ParticleSystem skillEffect;

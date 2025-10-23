@@ -16,4 +16,5 @@ MonoBehaviour:
   loop: 0
   coolTime: 1
   mp: 10
+  skillKey: 52
   skillEffect: {fileID: 198429577173499160, guid: a677ca8e264a37a45af2fc78d861175d, type: 3}
