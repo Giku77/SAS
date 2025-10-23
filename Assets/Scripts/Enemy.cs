@@ -31,6 +31,8 @@ public class Enemy : Entity
     private static readonly int hashDie = Animator.StringToHash("Die");
     private static readonly int hashTarget = Animator.StringToHash("HasTarget");
     private static readonly int hashSpeed = Animator.StringToHash("Speed");
+    private static readonly int hashAttack = Animator.StringToHash("Attack");
+    private static readonly int hashAttack2 = Animator.StringToHash("Attack2");
 
     private State currentState;
 
@@ -166,7 +168,8 @@ public class Enemy : Entity
         if (target == null || (target != null && Vector3.Distance(transform.position, target.position) > attackDist))
         {
             state = State.Trace;
-            animator.SetBool("Attack", false);
+            animator.SetBool(hashAttack, false);
+            if (enemyId == EnemyIds.BOSS) animator.SetBool(hashAttack2, false);
             return;
         }
         //transform.LookAt(target);
@@ -177,22 +180,16 @@ public class Enemy : Entity
         if (Time.time - lastAttackTime > attackDelay)
         {
             lastAttackTime = Time.time;
-            animator.SetBool("Attack", true);
-            if (attackType == EnemyAttackType.MELEE)
+            if (enemyId == EnemyIds.BOSS)
             {
-                //animator.SetFloat(hashAttackSpeed, enemyData.attackSpeed);
+                int attackAnim = Random.Range(0, 2);
+                if (attackAnim == 0)
+                    animator.SetBool(hashAttack, true);
+                else
+                    animator.SetBool(hashAttack2, true);
             }
-            else if (attackType == EnemyAttackType.RANGED)
-            {
-                //FireProjectile();
-            }
-            //var damageable = target.GetComponent<Player>();
-            //if (damageable != null && !damageable.isDead)
-            //{
-            //    animator.SetBool("Attack", true);
-            //    animator.SetFloat(hashAttackSpeed, enemyData.attackSpeed);
-            //    damageable.OnDamage(damage);
-            //}
+            else
+                animator.SetBool(hashAttack, true);
         }
     }
 
@@ -405,7 +402,16 @@ public class Enemy : Entity
         state = State.Die;
         animator.SetTrigger(hashDie);
 
-        //Destroy(gameObject, 3f);
+        Destroy(gameObject, 3f);
+
+        if (enemyId == EnemyIds.BOSS)
+        {
+            var uimanager = FindFirstObjectByType<UIManager>();
+            if (uimanager != null)
+            {
+                uimanager.ShowEndUI();
+            }
+        }
     }
 
     public void ResetEnemy()

@@ -12,9 +12,9 @@ namespace CrusaderUI.Scripts
 			_material = GetComponent<Image>().material;
 		}
 
-		public void SetValue(float value)
+		public void SetValue(float value, float max)
 		{
-			_material.SetFloat("_FillLevel", value/100);
+			_material.SetFloat("_FillLevel", value / max);
 		}
 	}
 }

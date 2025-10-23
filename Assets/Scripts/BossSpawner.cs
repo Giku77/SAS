@@ -18,7 +18,6 @@ public class BossSpawner : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindWithTag("Player");
-        boss.SetActive(false);
 
         playerCam.Priority = 10;
         bossIntroCam.Priority = 5;
@@ -40,16 +39,23 @@ public class BossSpawner : MonoBehaviour
 
     System.Collections.IEnumerator PlayBossIntro()
     {
+        player.GetComponent<Player>().isGodMode = true;
         bossIntroCam.Priority = 100;
         player.GetComponent<NavMeshAgent>().isStopped = true;
-        yield return new WaitForSeconds(1.5f);
-        boss.SetActive(true);
         yield return new WaitForSeconds(2f);
-        var impulse = boss.GetComponent<CinemachineImpulseSource>();
-        if (impulse) impulse.GenerateImpulse();
+        var vfxManager = FindFirstObjectByType<VfxManager>();
+        if (boss) boss.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        if (boss)
+        {
+            var impulse = boss.GetComponent<CinemachineImpulseSource>();
+            if (impulse) impulse.GenerateImpulse();
+        }
+        vfxManager.PlayBossVfx();
 
         yield return new WaitForSeconds(introDuration);
-        player.GetComponent<NavMeshAgent>().isStopped = false;  
+        player.GetComponent<NavMeshAgent>().isStopped = false;
+        player.GetComponent<Player>().isGodMode = false;
 
         playerCam.Priority = 100;
         bossIntroCam.Priority = 5;

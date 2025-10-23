@@ -13,8 +13,10 @@ public class Player : Entity
     public float rotateSpeed = 10f;
     public float minMoveDistance = 0.5f;
 
-    private float attackDistance = 2f;
-    private int attackDamage = 30;
+    private float attackDistance = 3f;
+    private int attackDamage;
+
+    public bool isGodMode { get; set; } = false;
 
     private Animator animator;
     private NavMeshAgent agent;
@@ -26,6 +28,8 @@ public class Player : Entity
 
     private Transform targetEnemy;
     private bool isAttacking = false;
+
+    private float maxHealth;
 
     private float stoppingDistance = 1.5f;
 
@@ -52,7 +56,8 @@ public class Player : Entity
         bigSword.SetActive(false);
         smallSword.SetActive(true);
 
-        health = 1000;
+        health = 300;
+        maxHealth = health;
         doorClick = false;
     }
 
@@ -152,7 +157,7 @@ public class Player : Entity
 
         animator.SetFloat(animationSpeed, agent.velocity.magnitude);
 
-        hpFlowController.SetValue(health);
+        hpFlowController.SetValue(health, maxHealth);
     }
 
     private void AttackEnemy()
@@ -179,12 +184,17 @@ public class Player : Entity
     protected override void Die()
     {
         base.Die();
-
-        SceneManager.LoadScene(mainScene);
+        var Uimanager = FindFirstObjectByType<UIManager>();
+        if (Uimanager != null)
+        {
+            Uimanager.ShowOverUI();
+        }
+        //SceneManager.LoadScene(mainScene);
     }
 
     public override void OnDamage(int damage)
     { 
+        if (isGodMode) return;
         base.OnDamage(damage);
         Debug.Log($"Player OnDamage {damage}, health {health}");
         //healthSlider.value = health;
@@ -201,6 +211,7 @@ public class Player : Entity
         Entity enemyEntity = targetEnemy?.GetComponent<Entity>();
         if (enemyEntity != null)
         {
+            attackDamage = Random.Range(30, 51);
             enemyEntity.OnDamage(attackDamage);
         }
     }
