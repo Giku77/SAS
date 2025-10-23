@@ -4,6 +4,7 @@ using System;
 
 public class SkillManager : MonoBehaviour
 {
+    public AudioClip basicBGM;
     public static SkillManager I { get; private set; }
 
     private readonly List<SkillBase> skills = new List<SkillBase>();
@@ -17,6 +18,7 @@ public class SkillManager : MonoBehaviour
 
     void Awake()
     {
+        AudioManager.I.PlayBGM(basicBGM, 2f);
         if (I == null) I = this;
         else
         {

@@ -8,6 +8,7 @@ public class BossSpawner : MonoBehaviour
     public GameObject boss;
     public CinemachineCamera playerCam;   
     public CinemachineCamera bossIntroCam; 
+    public AudioClip bossBGM; 
 
     public float triggerDist = 20f;
     public float introDuration = 3f;     // 보스 비추는 시간
@@ -32,6 +33,7 @@ public class BossSpawner : MonoBehaviour
         {
             StartCoroutine(PlayBossIntro());
             played = true;
+            AudioManager.I.PlayBGM(bossBGM, 2f);
         }
     }
 
