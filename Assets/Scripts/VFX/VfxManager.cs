@@ -35,6 +35,15 @@ public class VfxManager : MonoBehaviour, IPoolable
         CreateSkillVfxsFromRefs();
     }
 
+    public void PlayBossVfx()
+    {
+        var v = vfxAnchors[vfxAnchors.Length - 1].GetComponentInChildren<ParticleSystem>(includeInactive: true);
+        v.gameObject.SetActive(true);
+        //var p = skillVfxsRef[skillVfxsRef.Length - 1].skillEffect;
+        //p.transform.localScale = Vector3.one * 3f;
+        //Instantiate(p, pos, p.transform.rotation);
+    }
+
     void CreateSkillVfxsFromRefs()
     {
         int enumCount = (int)SkillName.Count;
