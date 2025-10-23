@@ -124,7 +124,7 @@ public class Enemy : Entity
         proj.LaunchTo(spawnPos, target, flightTime, owner: transform);
     }
 
-    public void Awake()
+    protected override void Awake()
     {
         //healthSlider = GetComponentInChildren<Slider>();
         agent = GetComponent<NavMeshAgent>();
@@ -195,6 +195,7 @@ public class Enemy : Entity
 
     public void Hit() 
     {
+        if (target == null) return;
         float dist = Vector3.Distance(transform.position, target.position);
         if (attackType == EnemyAttackType.MELEE)
         {

@@ -9,7 +9,7 @@ public class ResourceBar : MonoBehaviour
     {
         maxValue = max;
         slider.maxValue = max;
-        slider.value = max;
+        //slider.value = max;
     }
     public void UpdateSlider(float cur)
     {

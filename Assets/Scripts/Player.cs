@@ -15,6 +15,7 @@ public class Player : Entity
 
     private float attackDistance = 3f;
     private int attackDamage;
+    private int addDamage;
 
     public bool isGodMode { get; set; } = false;
 
@@ -38,7 +39,7 @@ public class Player : Entity
     public GameObject bigSword;
     public GameObject smallSword;
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
         mainCamera = Camera.main;
@@ -53,8 +54,8 @@ public class Player : Entity
         agent.updateRotation = false;
         agent.stoppingDistance = stoppingDistance;
 
-        bigSword.SetActive(false);
-        smallSword.SetActive(true);
+        if (bigSword) bigSword.SetActive(false);
+        if (smallSword) smallSword.SetActive(true);
 
         health = 300;
         maxHealth = health;
@@ -212,6 +213,7 @@ public class Player : Entity
         if (enemyEntity != null)
         {
             attackDamage = Random.Range(30, 51);
+            attackDamage += addDamage;
             enemyEntity.OnDamage(attackDamage);
         }
     }
@@ -233,5 +235,25 @@ public class Player : Entity
 
             other.gameObject.SetActive(false);
         }
+    }
+
+    public void SetHealth(float value)
+    {
+        health = (int)Mathf.Clamp(value, 0f, maxHealth);
+    }
+
+    public float getMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public float getHealth()
+    {
+        return health;
+    }
+
+    public void addAttackDamage(int value)
+    {
+        addDamage = value;
     }
 }
