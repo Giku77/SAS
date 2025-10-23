@@ -9,6 +9,7 @@ TagManager:
   - FrontDoorway
   - BackDoorway
   - Enemy
+  - Move
   layers:
   - Default
   - TransparentFX

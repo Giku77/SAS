@@ -45,6 +45,7 @@ public class Player : Entity
         agent.updateRotation = false;
         agent.stoppingDistance = stoppingDistance;
 
+        health = 1000;
         doorClick = false;
     }
 
