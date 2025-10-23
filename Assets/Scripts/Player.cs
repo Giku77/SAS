@@ -31,6 +31,9 @@ public class Player : Entity
 
     public CrusaderUI.Scripts.HPFlowController hpFlowController;
 
+    public GameObject bigSword;
+    public GameObject smallSword;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -44,6 +47,9 @@ public class Player : Entity
         agent.angularSpeed = 0f;
         agent.updateRotation = false;
         agent.stoppingDistance = stoppingDistance;
+
+        bigSword.SetActive(false);
+        smallSword.SetActive(true);
 
         health = 1000;
         doorClick = false;
@@ -195,6 +201,25 @@ public class Player : Entity
         if (enemyEntity != null)
         {
             enemyEntity.OnDamage(attackDamage);
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("BigSword"))
+        {
+            Debug.Log("대검 획득");
+
+            attackDamage = 100;
+            attackDistance = 4f;
+            stoppingDistance = 3f;
+
+            agent.stoppingDistance = stoppingDistance;
+
+            smallSword.SetActive(false);
+            bigSword.SetActive(true);
+
+            other.gameObject.SetActive(false);
         }
     }
 }
