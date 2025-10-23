@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public LayerMask hitMask;
     Rigidbody rb;
     Transform owner;
+    public int damage = 10;
 
     void Awake() => rb = GetComponent<Rigidbody>();
 
@@ -47,7 +48,12 @@ public class Projectile : MonoBehaviour
         if (((1 << other.gameObject.layer) & hitMask) != 0)
         {
             Debug.Log($"Projectile hit {other.name}");
-           
+
+            Player player = other.GetComponent<Player>();
+            if (player != null)
+            {
+                player.OnDamage(damage);
+            }
         }
     }
 
