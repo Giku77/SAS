@@ -57,7 +57,7 @@ public class Player : Entity
         if (bigSword) bigSword.SetActive(false);
         if (smallSword) smallSword.SetActive(true);
 
-        health = 300;
+        health = 400;
         maxHealth = health;
         doorClick = false;
     }

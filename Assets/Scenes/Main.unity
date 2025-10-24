@@ -1337,6 +1337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWSword
       objectReference: {fileID: 0}
+    - target: {fileID: 486204015865992849, guid: 0f5f9d115aa52cd498d386a178c7ff7f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1005577417776942123, guid: 0f5f9d115aa52cd498d386a178c7ff7f, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -2144,6 +2148,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766388773}
   m_CullTransparentMesh: 1
+--- !u!1 &784288346 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 486204015865992849, guid: 0f5f9d115aa52cd498d386a178c7ff7f, type: 3}
+  m_PrefabInstance: {fileID: 424311807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &802554695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,6 +2451,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64999c872a523ab4897387ef6a13b5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &859330523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4813791370842366373, guid: ecfd925dbf22db544a1c99bbc8ca2d32, type: 3}
+  m_PrefabInstance: {fileID: 933695858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919429933
 GameObject:
   m_ObjectHideFlags: 0
@@ -4686,8 +4700,8 @@ MonoBehaviour:
   rotateSpeed: 10
   minMoveDistance: 0.5
   hpFlowController: {fileID: 1245518413}
-  bigSword: {fileID: 0}
-  smallSword: {fileID: 0}
+  bigSword: {fileID: 784288346}
+  smallSword: {fileID: 859330523}
 --- !u!1 &1772065185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7260699513155784914, guid: 0fa57d14f77e3244fa2d76d2a16c92d3, type: 3}
@@ -5444,10 +5458,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9be9bd2fc48a304cbd22f2fc03058cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 22152446766833406}
+  boss: {fileID: 0}
   playerCam: {fileID: 972754291}
   bossIntroCam: {fileID: 642714908}
-  bossBGM: {fileID: 8300000, guid: d0c77ac5ebd69314394325d909029f07, type: 3}
+  bossBGM: {fileID: 0}
   triggerDist: 20
   introDuration: 3
 --- !u!1001 &2097070135
@@ -5598,10 +5612,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9be9bd2fc48a304cbd22f2fc03058cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 0}
+  boss: {fileID: 22152446766833406}
   playerCam: {fileID: 972754291}
   bossIntroCam: {fileID: 642714908}
-  bossBGM: {fileID: 0}
+  bossBGM: {fileID: 8300000, guid: d0c77ac5ebd69314394325d909029f07, type: 3}
   triggerDist: 20
   introDuration: 3
 --- !u!4 &2132381244
