@@ -6,16 +6,23 @@ namespace CrusaderUI.Scripts
 	public class HPFlowController : MonoBehaviour {
 	
 		private Material _material;
-
-		private void Start ()
+		private float max;
+        private void Start ()
 		{
 			_material = GetComponent<Image>().material;
 		}
 
 		public void SetValue(float value, float max)
 		{
-			_material.SetFloat("_FillLevel", value / max);
+            this.max = max;
+
+            _material.SetFloat("_FillLevel", value / max);
 		}
+        public void UpdateMpValue(float value)
+        {
+            _material.SetFloat("_FillLevel", value / max);
+        }
+
         public void SetValue(float value)
         {
             _material.SetFloat("_FillLevel", value / 100);

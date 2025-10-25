@@ -10,45 +10,15 @@ public class Entity : MonoBehaviour
     protected int damage = 10;
     protected float speed = 5f;
 
-    // LSY: Event when Mp changes
-    public float maxMp = 100f;
-    private float mp;
-    public float mpValue
-    {
-        get => mp;
-        private set
-        {
-            mp = Mathf.Clamp(value, 0f, maxMp);
-            OnMpChanged?.Invoke(mp);
-        }
-    }
-
-    protected virtual void Awake()
-    {
-        mpValue = maxMp;
-    }
-    public bool TryConsumeMp(float amount)
-    {
-        if (mp >= amount)
-        {
-            mpValue = mp - amount;
-            return true;
-        }
-        return false;
-    }
-
-    public void RestoreMp(float amount)
-    {
-        mpValue = mp + amount;
-    }
-
-    public event Action<float> OnMpChanged;
-
     public bool isDead => health <= 0;
 
     public LayerMask targetPlayer;
     private Coroutine healthSecCoroutine;
 
+    protected virtual void Awake()
+    {
+        // Initialize entity properties if needed
+    }
     protected Collider FindTarget(float radius)
     {
         var colliders = Physics.OverlapSphere(transform.position, radius, targetPlayer.value);

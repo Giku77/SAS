@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public abstract class SkillBase : MonoBehaviour
 {
     [SerializeField] protected SkillDef skill;
-    [SerializeField] protected Entity playerEntity;
+    [SerializeField] protected Player playerEntity;
 
     public SkillName skillName;
 

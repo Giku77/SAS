@@ -42,11 +42,7 @@ public class ActiveSkill : SkillBase
     {
         if (skill == null || playerEntity == null) return;
 
-        bool success = playerEntity.TryConsumeMp(skill.mp);
-        if (!success)
-        {
-            Debug.LogWarning($"{skillName} - Not enough MP!");
-        }
+        playerEntity.mpValue -= skill.mp;
     }
 
     private Vector3 GetRallySlot(Vector3 center, int i, float spacing)

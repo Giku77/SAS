@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using CrusaderUI.Scripts;
+using System;
+using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
+    public AudioClip basicBGM;
+
     private static readonly string animationSpeed = "Speed";
     private static readonly string animationAttack = "Attack";
     private static readonly string mainScene = "Main";
@@ -39,6 +43,22 @@ public class Player : Entity
     public GameObject bigSword;
     public GameObject smallSword;
 
+    // LSY: Event when Mp changes
+    public float maxMp;
+    private float mp;
+    public float mpValue
+    {
+        get => mp;
+        set 
+        {
+            mp = Mathf.Clamp(value, 0f, maxMp);
+            mpFlowController.UpdateMpValue(mp);
+        }
+    }
+
+    public CrusaderUI.Scripts.HPFlowController mpFlowController;
+
+    // LSY: Initialize MP to maxMp
     protected override void Awake()
     {
         base.Awake();
@@ -49,6 +69,7 @@ public class Player : Entity
 
     private void Start()
     {
+        AudioManager.I.PlayBGM(basicBGM, 2f);
         agent.speed = moveSpeed;
         agent.angularSpeed = 0f;
         agent.updateRotation = false;
@@ -59,6 +80,9 @@ public class Player : Entity
 
         health = 400;
         maxHealth = health;
+        maxMp = 100f;
+        mp = maxMp;
+
         doorClick = false;
     }
 
@@ -157,8 +181,9 @@ public class Player : Entity
         }
 
         animator.SetFloat(animationSpeed, agent.velocity.magnitude);
-
+        mpFlowController.SetValue(mp, maxMp);
         hpFlowController.SetValue(health, maxHealth);
+        //mpFlowController.UpdateMpValue(mp);
     }
 
     private void AttackEnemy()
@@ -197,7 +222,7 @@ public class Player : Entity
     { 
         if (isGodMode) return;
         base.OnDamage(damage);
-        Debug.Log($"Player OnDamage {damage}, health {health}");
+       // Debug.Log($"Player OnDamage {damage}, health {health}");
         //healthSlider.value = health;
 
         var hf = GetComponent<HitFlash>();
@@ -212,7 +237,7 @@ public class Player : Entity
         Entity enemyEntity = targetEnemy?.GetComponent<Entity>();
         if (enemyEntity != null)
         {
-            attackDamage = Random.Range(30, 51);
+            attackDamage = UnityEngine.Random.Range(30, 51);
             attackDamage += addDamage;
             enemyEntity.OnDamage(attackDamage);
         }

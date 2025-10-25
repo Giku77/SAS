@@ -4,7 +4,6 @@ using System;
 
 public class SkillManager : MonoBehaviour
 {
-    public AudioClip basicBGM;
     public static SkillManager I { get; private set; }
 
     private readonly List<SkillBase> skills = new List<SkillBase>();
@@ -13,38 +12,35 @@ public class SkillManager : MonoBehaviour
 
     public bool isPaused = false;
 
-    public ResourceBar mpBar;
-    public Entity playerEntity;
+    //public ResourceBar mpBar;
+    public Player playerEntity;
 
     void Awake()
     {
-        if (I == null) I = this;
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
+        //if (I == null) I = this;
+        //else
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
+        //DontDestroyOnLoad(gameObject);
     }
 
     public void Start()
     {
-        AudioManager.I.PlayBGM(basicBGM, 2f);
         if (playerEntity == null)
         {
             Debug.LogWarning("SkillManager: playerEntity is null");
         }
-        if (mpBar != null && playerEntity != null)
-        {
-            mpBar.InitSlider(playerEntity.maxMp);
-            mpBar.UpdateSlider(playerEntity.mpValue);
-
-            playerEntity.OnMpChanged += OnPlayerMpChanged;
-        }
+        //if (mpBar != null && playerEntity != null)
+        //{
+        //    mpBar.InitSlider(playerEntity.maxMp);
+        //    mpBar.UpdateSlider(playerEntity.mpValue);
+        //}
     }
     private void OnPlayerMpChanged(float curMp)
     {
-        if (mpBar != null) mpBar.UpdateSlider(curMp);
+       // if (mpBar != null) mpBar.UpdateSlider(curMp);
     }
     public void RegisterSkill(SkillBase skill)
     {
@@ -74,10 +70,5 @@ public class SkillManager : MonoBehaviour
     {
         for (int i = 0; i < skills.Count; i++)
             skills[i].ResetSkill();
-    }
-
-    void OnDestroy()
-    {
-        if (playerEntity != null) playerEntity.OnMpChanged -= OnPlayerMpChanged;
     }
 }

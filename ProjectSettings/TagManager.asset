@@ -11,6 +11,13 @@ TagManager:
   - Enemy
   - Move
   - BigSword
+  - Slider
+  - Debuff
+  - Explosion
+  - Heal
+  - Knife
+  - MegaBlackHole
+  - Meteor
   layers:
   - Default
   - TransparentFX
