@@ -57,6 +57,14 @@ public class ActiveSkill : SkillBase
         return center + new Vector3(Mathf.Cos(theta) * r, 0f, Mathf.Sin(theta) * r);
     }
 
+    protected override void Awake()
+    {
+        if (playerEntity == null)
+        {
+            playerEntity = FindFirstObjectByType<Player>();
+        }
+    }
+
     public async override void Execute()
     {
         if (!CanCast()) return;
@@ -66,8 +74,12 @@ public class ActiveSkill : SkillBase
         var player = FindFirstObjectByType<Player>();
         if (skill.skillEffect != null)
         {
-            skill.skillEffect.gameObject.SetActive(true);
-            skill.skillEffect.Play();
+            var fx = Instantiate(skill.skillEffect,
+                            player.transform);
+            fx.gameObject.SetActive(true);
+            fx.Play();
+            //skill.skillEffect.gameObject.SetActive(true);
+            //skill.skillEffect.Play();
 
             Vector3 center = player.transform.position;
             if (skill.skillname == SkillName.Heal)

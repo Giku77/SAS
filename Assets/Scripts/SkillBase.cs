@@ -1,5 +1,6 @@
-using UnityEngine;
 using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class SkillBase : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public abstract class SkillBase : MonoBehaviour
     public ResourceBar resourceBar;
     protected virtual void Awake()
     {
-
+     
     }
 
     protected virtual void Start()
@@ -45,11 +46,33 @@ public abstract class SkillBase : MonoBehaviour
         SkillManager.I?.RegisterSkill(this);
     }
 
+    protected virtual void OnEnable()
+    {
+        RebindPlayer();
+        SceneManager.activeSceneChanged += OnActiveSceneChanged;
+    }
+
+    protected virtual void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= OnActiveSceneChanged;
+    }
+
+    private void OnActiveSceneChanged(Scene prev, Scene next)
+    {
+        RebindPlayer();
+    }
+
     protected virtual void OnDestroy()
     {
         SkillManager.I?.UnregisterSkill(this);
         if (resourceBar != null)
             OnCooldownChanged -= resourceBar.UpdateSlider;
+    }
+
+    protected void RebindPlayer()
+    {
+        var p = FindFirstObjectByType<Player>(FindObjectsInactive.Exclude);
+        if (p != null) playerEntity = p;
     }
 
     public abstract bool CanCast();

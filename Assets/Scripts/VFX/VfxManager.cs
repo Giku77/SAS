@@ -83,18 +83,7 @@ public class VfxManager : MonoBehaviour, IPoolable
             clone.loop = src.loop;
             clone.skillKey = src.skillKey;
             clone.damage = src.damage;
-
-            if (src.skillEffect != null)
-            {
-                Transform parent = vfxAnchors[(int)VfxType.Skill];
-                var vfxInstance = Instantiate(src.skillEffect, parent);
-                vfxInstance.gameObject.SetActive(false);
-                clone.skillEffect = vfxInstance;
-            }
-            else
-            {
-                clone.skillEffect = null;
-            }
+            clone.skillEffect = src.skillEffect;
 
             skillVfxs[idx] = clone;
             Debug.Log($"Assigned skillVfxs[{name}] (index {idx}) from ref[{i}]");

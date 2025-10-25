@@ -645,7 +645,6 @@ GameObject:
   m_Component:
   - component: {fileID: 201101488}
   - component: {fileID: 201101489}
-  - component: {fileID: 201101490}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -684,18 +683,6 @@ MonoBehaviour:
   playerEntity: {fileID: 1696710914}
   skillName: 0
   resourceBar: {fileID: 2122340520}
---- !u!114 &201101490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201101487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a81679b714f4aca469a85d3f243a23ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &222327882 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6112562564565548440, guid: 0fa57d14f77e3244fa2d76d2a16c92d3, type: 3}
@@ -989,7 +976,6 @@ GameObject:
   m_Component:
   - component: {fileID: 302339790}
   - component: {fileID: 302339791}
-  - component: {fileID: 302339792}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -1028,18 +1014,6 @@ MonoBehaviour:
   playerEntity: {fileID: 1696710914}
   skillName: 4
   resourceBar: {fileID: 1428382302}
---- !u!114 &302339792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302339789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4645d637552277342b11cd71e09b004d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &336337343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2400,7 +2374,6 @@ GameObject:
   m_Component:
   - component: {fileID: 858023142}
   - component: {fileID: 858023143}
-  - component: {fileID: 858023144}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -2439,18 +2412,6 @@ MonoBehaviour:
   playerEntity: {fileID: 1696710914}
   skillName: 2
   resourceBar: {fileID: 853703870}
---- !u!114 &858023144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858023141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64999c872a523ab4897387ef6a13b5cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &859330523 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4813791370842366373, guid: ecfd925dbf22db544a1c99bbc8ca2d32, type: 3}
@@ -3867,7 +3828,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1193669288}
   - component: {fileID: 1193669289}
-  - component: {fileID: 1193669290}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -3906,18 +3866,6 @@ MonoBehaviour:
   playerEntity: {fileID: 1696710914}
   skillName: 5
   resourceBar: {fileID: 1772065188}
---- !u!114 &1193669290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193669287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 098bfda45f48cd2488a9a9edf204ecf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1231580361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4540,7 +4488,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1543244013}
   - component: {fileID: 1543244014}
-  - component: {fileID: 1543244015}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -4579,18 +4526,6 @@ MonoBehaviour:
   playerEntity: {fileID: 1696710914}
   skillName: 1
   resourceBar: {fileID: 1462375055}
---- !u!114 &1543244015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543244012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148b7d7239c64bf41a95bcec1713b1d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1579294953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4951823885998528, guid: a8d3fcab2b67056498a80532b2542465, type: 3}
@@ -4792,7 +4727,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1837700311}
   - component: {fileID: 1837700312}
-  - component: {fileID: 1837700313}
   m_Layer: 0
   m_Name: skill
   m_TagString: Untagged
@@ -4830,19 +4764,7 @@ MonoBehaviour:
   skill: {fileID: 0}
   playerEntity: {fileID: 1696710914}
   skillName: 6
-  resourceBar: {fileID: 0}
---- !u!114 &1837700313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837700310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ad04d8dd9c938458769d69bc69d10c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  resourceBar: {fileID: 344221637}
 --- !u!1 &1850586080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 3}
